@@ -1,8 +1,8 @@
 function SingIn(){
     return (
-        <div className="bg-green-300">
-            SingIn
-        </div>
+        <Layout>
+            Sign in
+        </Layout>
     )
 }
 

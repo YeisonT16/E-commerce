@@ -1,8 +1,8 @@
 function NotFound(){
     return (
-        <div className="bg-green-300">
-            NotFound
-        </div>
+        <Layout>
+            Not found
+        </Layout>
     )
 }
 
