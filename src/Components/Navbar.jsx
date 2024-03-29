@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom'
+import { ShoppingCartContext } from '../Context';
 
 function Navbar() {
-
-    const activeStyle = 'underline underline-offset-4'
+    const context = useContext(ShoppingCartContext)
+    const activeStyle = 'underline underline-offset-4 text-blue-400/90'
 
     return (
         <nav className='flex justify-between items-center w-full z-10 top-0 py-5 px-9 text-sm'>
@@ -15,15 +17,19 @@ function Navbar() {
                     }>Shopi
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
-                        to='/'
+                        to='/home'
                         className={({isActive}) => isActive ? activeStyle : undefined
                     
                     }>ALL
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
                         to='/clothes'
                         className={({isActive}) => isActive ? activeStyle : undefined
@@ -31,7 +37,9 @@ function Navbar() {
                     }>Clothes
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
                         to='sports'
                         className={({isActive}) => isActive ? activeStyle : undefined
@@ -39,7 +47,9 @@ function Navbar() {
                     }>Sports
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
                         to='/electronics'
                         className={({isActive}) => isActive ? activeStyle : undefined
@@ -47,7 +57,9 @@ function Navbar() {
                     }>Electronics
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
                         to='/toys'
                         className={({isActive}) => isActive ? activeStyle : undefined
@@ -55,7 +67,9 @@ function Navbar() {
                     }>Toys
                     </NavLink>
                 </li>
-                <li>
+                <li
+                    className='hover:text-blue-400/90'
+                >
                     <NavLink 
                         to='/others'
                         className={({isActive}) => isActive ? activeStyle : undefined
@@ -78,7 +92,7 @@ function Navbar() {
                     <NavLink to='signin'>Sign In</NavLink>
                 </li>
                 <li>
-                    0
+                    🛒{context.count}
                 </li>
             </ul>
         </nav>

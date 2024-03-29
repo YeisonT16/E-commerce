@@ -1,19 +1,21 @@
 import { useState } from 'react'
-import { BrowserRouter, createBrowserRouter, RouterProvider, useRoutes } from 'react-router-dom'
+import { BrowserRouter, useRoutes } from 'react-router-dom'
 import './App.css'
+import { Navbar } from './Components/Navbar'
 import { Home } from './Pages/Home'
 import { MyAccount } from './Pages/MyAccount'
 import { MyOrder } from './Pages/MyOrder'
 import { MyOrders } from './Pages/MyOrders'
 import { NotFound } from './Pages/NotFound'
 import { SingIn } from './Pages/SingIn'
-import { Navbar } from './Components/Navbar'
+import { ShoppingCardProvider } from './Context'
+
 
 
 const AppRoutes = () => {
   let routes = useRoutes([
   {
-    path:'/',
+    path:'/home',
     element: <Home />
   },
   {
@@ -36,7 +38,11 @@ const AppRoutes = () => {
     path:'/*',
     element: <NotFound />
   },
-])}
+])
+
+return routes
+
+}
 
 
 function App() {
@@ -46,10 +52,12 @@ function App() {
   return (
     
     <>
+    <ShoppingCardProvider>
     <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
+    <Navbar />
+    <AppRoutes />      
     </BrowserRouter>
+    </ShoppingCardProvider>
   </>
   )
 }
