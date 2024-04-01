@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ShoppingCartContext } from "../Context"
+import { CloseIcon } from "../icons/CloseIcon";
 
 
 
@@ -12,7 +13,11 @@ const context = useContext(ShoppingCartContext);
             <div className="flex justify-between items-center p-6">
                 <h2 className="font-medium text-black text-xl">Detail</h2>
                 <div className="text-gray-600 cursor-pointer">
-                    x
+                    <CloseIcon
+                        onClick={() => context.closeProductDetail()}
+                        className="size-6 cursor-pointer text-black"
+                    >
+                    </CloseIcon>
                 </div>
             </div>
             <figure className="px-6">

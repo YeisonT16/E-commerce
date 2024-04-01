@@ -16,11 +16,24 @@ export const ShoppingCardProvider = ({children}) => {
     setProductDetailOpen(false)
     }
 
+    //Estado y estados derivados para actualizar, abrir/cerrar la lista de compras (checkoutSideMenu)
+    const [checkoutSideMenu, setCheckoutSideMenu] = useState(false)
+    const openCheckoutSideMenu = () => {
+        setCheckoutSideMenu(true)
+    }
+    const closeCheckoutSideMenu = () => {
+        setCheckoutSideMenu(false)
+    }
+
     //Estado mostrar productos en el detalle del producto (product Detail)
     const [productToShow, setProductToShow] = useState({})
 
     //Estado para agregar productos al carrito (shopping Cart)
     const [cartProducts, setCartProducts] = useState([])
+
+    //Estado para las ordenes en el carrito de compras(shoppingCart)
+    const [order, setOrder] = useState([])
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
@@ -32,6 +45,11 @@ export const ShoppingCardProvider = ({children}) => {
             setProductToShow,
             cartProducts,
             setCartProducts,
+            checkoutSideMenu,
+            openCheckoutSideMenu,
+            closeCheckoutSideMenu,
+            order,
+            setOrder,
         }}>
             { children }
         </ShoppingCartContext.Provider>

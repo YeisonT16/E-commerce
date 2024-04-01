@@ -30,7 +30,7 @@ const getProducts = async () => {
             {
                 items?.map((item) => (
                     <CardProductItem
-                    key={item.id}
+                    id={item.id}
                     name={item.title}
                     category={item.category}
                     price={item.price}

@@ -9,6 +9,7 @@ import { MyOrders } from './Pages/MyOrders'
 import { NotFound } from './Pages/NotFound'
 import { SingIn } from './Pages/SingIn'
 import { ShoppingCardProvider } from './Context'
+import { CheckoutSideMenu } from './Components/CheckoutSideMenu'
 
 
 
@@ -19,19 +20,23 @@ const AppRoutes = () => {
     element: <Home />
   },
   {
-    path:'myaccount',
+    path:'my-account',
     element: <MyAccount />
   },
   {
-    path:'myorder',
+    path:'my-order',
     element: <MyOrder />
   },
   {
-    path:'myorders',
+    path:'my-orders',
     element: <MyOrders />
   },
   {
-    path:'signin',
+    path:'my-orders/last',
+    element: <MyOrder />
+  },
+  {
+    path:'sign-in',
     element: <SingIn />
   },
   {
@@ -55,7 +60,8 @@ function App() {
     <ShoppingCardProvider>
     <BrowserRouter>
     <Navbar />
-    <AppRoutes />      
+    <AppRoutes />
+    <CheckoutSideMenu />   
     </BrowserRouter>
     </ShoppingCardProvider>
   </>
