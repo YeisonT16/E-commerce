@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 const ShoppingCartContext = createContext()
 
@@ -13,7 +13,7 @@ export const ShoppingCardProvider = ({children}) => {
         setProductDetailOpen(true)
     }
     const closeProductDetail = () => {
-    setProductDetailOpen(false)
+        setProductDetailOpen(false)
     }
 
     //Estado y estados derivados para actualizar, abrir/cerrar la lista de compras (checkoutSideMenu)
@@ -34,6 +34,39 @@ export const ShoppingCardProvider = ({children}) => {
     //Estado para las ordenes en el carrito de compras(shoppingCart)
     const [order, setOrder] = useState([])
 
+    // Get products
+    const [items, setItems] = useState(null)
+    const [filteredItems, setFilteredItems] = useState(null)
+
+    // Get products by title
+    const [searchByTitle, setSearhByTitle] = useState("")
+    console.log("searchByTitle :", searchByTitle)
+
+    const URL = 'https://fakestoreapi.com/products';
+
+    useEffect(() => {
+    const getProducts = async () => {
+        try {
+            const response = await fetch(URL)
+            const data = await response.json()
+            setItems(data)
+        } catch (error){
+            console.log(`Error inesperado ${error}`)
+        }
+    } 
+    getProducts()
+    }, [])
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+        return items?.filter((item) => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+
+    useEffect( () => {
+        if (searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+    }, [items, searchByTitle])
+
+    
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
@@ -50,6 +83,12 @@ export const ShoppingCardProvider = ({children}) => {
             closeCheckoutSideMenu,
             order,
             setOrder,
+            items,
+            setItems,
+            searchByTitle,
+            setSearhByTitle,
+            filteredItems,
+            setFilteredItems,
         }}>
             { children }
         </ShoppingCartContext.Provider>

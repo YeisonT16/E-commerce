@@ -36,6 +36,10 @@ const AppRoutes = () => {
     element: <MyOrder />
   },
   {
+    path:'my-orders/:id',
+    element: <MyOrder />
+  },
+  {
     path:'sign-in',
     element: <SingIn />
   },
@@ -59,9 +63,9 @@ function App() {
     <>
     <ShoppingCardProvider>
     <BrowserRouter>
+    <CheckoutSideMenu />   
     <Navbar />
     <AppRoutes />
-    <CheckoutSideMenu />   
     </BrowserRouter>
     </ShoppingCardProvider>
   </>

@@ -13,11 +13,14 @@ const context = useContext(ShoppingCartContext);
             <div className="flex justify-between items-center p-6">
                 <h2 className="font-medium text-black text-xl">Detail</h2>
                 <div className="text-gray-600 cursor-pointer">
-                    <CloseIcon
-                        onClick={() => context.closeProductDetail()}
-                        className="size-6 cursor-pointer text-black"
+                    <button 
+                         onClick={() => context.closeProductDetail()}
+                         className="cursor-pointer text-black"
                     >
-                    </CloseIcon>
+                    <CloseIcon
+                       className="size-6"
+                    />                    
+                    </button>
                 </div>
             </div>
             <figure className="px-6">
