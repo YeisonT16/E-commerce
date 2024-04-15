@@ -36,11 +36,17 @@ export const ShoppingCardProvider = ({children}) => {
 
     // Get products
     const [items, setItems] = useState(null)
+
+    //filtered products array
     const [filteredItems, setFilteredItems] = useState(null)
 
     // Get products by title
-    const [searchByTitle, setSearhByTitle] = useState("")
-    console.log("searchByTitle :", searchByTitle)
+    //const [searchByTitle, setSearhByTitle] = useState(null)
+
+    // Searched products array
+    const [searchedItems, setSearchedItems] = useState(null)
+    console.log('searchedItem:', searchedItems);
+
 
     const URL = 'https://fakestoreapi.com/products';
 
@@ -57,15 +63,27 @@ export const ShoppingCardProvider = ({children}) => {
     getProducts()
     }, [])
 
-    const filteredItemsByTitle = (items, searchByTitle) => {
-        return items?.filter((item) => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-    }
+     //filter products by name, description or category
+    const filtered = (items, searchedItems) => {
+        return items?.filter(
+            (item) =>   item.title.toLowerCase().includes(searchedItems.toLowerCase()) || 
+                        item.description.toLowerCase().includes(searchedItems.toLowerCase()) ||
+                        item.category.toLowerCase().includes(searchedItems.toLowerCase())
+        )
+    };
+
+    //filter products by name, description or category
+
 
     useEffect( () => {
-        if (searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
-    }, [items, searchByTitle])
+        if (searchedItems) {
+            setFilteredItems(filtered(items, searchedItems))
+        } else {
+            setFilteredItems(items)
+        }
+    }, [items, searchedItems])
 
-    
+    console.log('filteredItems:', filteredItems);
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -85,10 +103,10 @@ export const ShoppingCardProvider = ({children}) => {
             setOrder,
             items,
             setItems,
-            searchByTitle,
-            setSearhByTitle,
             filteredItems,
             setFilteredItems,
+            searchedItems,
+            setSearchedItems,
         }}>
             { children }
         </ShoppingCartContext.Provider>
