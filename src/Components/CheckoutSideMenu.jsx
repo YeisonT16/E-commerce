@@ -57,11 +57,11 @@ function CheckoutSideMenu(){
             </div>
             <div className="px-6 mb-6 ">
                 <p className="flex justify-between items-center mb-2">
-                    <span className="font-ligth">Total</span>
-                    <span className="font-medium text-2xl">${totalPrice(context.cartProducts)}</span>
+                    <span className="font-medium text-xl text-gray-600/80">Total</span>
+                    <span className="font-medium text-2xl text-red-600/80">${totalPrice(context.cartProducts)}</span>
                 </p>
                 <Link to={'/my-orders/last'}>
-                <button className="w-full bg-sky-500/90 text-white rounded-lg" onClick={() => handleCheckout(context.cartProducts)}>Checkout</button>
+                <button className="w-full h-10 bg-sky-500/90 text-white rounded-lg" onClick={() => handleCheckout(context.cartProducts)}>Checkout</button>
                 </Link>
                 
             </div>
