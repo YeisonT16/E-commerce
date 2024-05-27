@@ -2,7 +2,35 @@ import { createContext, useState, useEffect } from 'react'
 
 const ShoppingCartContext = createContext()
 
+export const initializeLocalStorage = () => {
+    const accountLocalStorage = localStorage.getItem('account');
+    const signOutInLocalStorage = localStorage.getItem('sign-out');
+    let parsedAccount
+    let parsedSignOut
+
+    if(!accountLocalStorage) {
+        localStorage.setItem('account', JSON.stringify({}))
+        parsedAccount = {}
+    } else {
+        parsedAccount = JSON.parse(accountLocalStorage)
+    }
+
+    if(!signOutInLocalStorage) {
+        localStorage.setItem('sign-out', JSON.stringify(false))
+        parsedSignOut = false
+    } else {
+        parsedSignOut = JSON.parse(signOutInLocalStorage)
+    }
+}
+
 export const ShoppingCardProvider = ({children}) => {
+
+    //  My account 
+    const [account, setAccount] = useState({})
+
+     // Sign out
+    const [signOut, setSignOut] = useState(false)
+
     //Estado incrementar cantidad de items
     const [count, setCount] = useState(0)
     //Estado abrir/cerrar el detalle de producto
@@ -46,9 +74,9 @@ export const ShoppingCardProvider = ({children}) => {
     // Searched products array
     const [searchedItems, setSearchedItems] = useState(null)
     console.log('searchedItem:', searchedItems);
-
-
+    
     const URL = 'https://fakestoreapi.com/products';
+
 
     useEffect(() => {
     const getProducts = async () => {
@@ -107,6 +135,10 @@ export const ShoppingCardProvider = ({children}) => {
             setFilteredItems,
             searchedItems,
             setSearchedItems,
+            account,
+            setAccount,
+            signOut,
+            setSignOut,
         }}>
             { children }
         </ShoppingCartContext.Provider>
