@@ -62,7 +62,7 @@ function CardProductItem(props){
                 <img className="w-full h-full object-cover rounded-lg" src={image} alt={`imagen de ${name}`} />
             {rederIcon(id)}
             </figure>
-            <span className="px-2 h-5 block text-[11px] text-gray-500/80">{name}</span>
+            <span className="px-2 h-5 block text-[11px] overflow-hidden text-gray-500/80">{name}</span>
             <p className="flex justify-between items-center px-2">
                 <span className="text-sm  font-bold text-red-500/80">${price}</span>
                 <span className="text-sm font-semibold text-red text-blue-500/80 ">3 disponibles</span>

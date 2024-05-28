@@ -14,12 +14,12 @@ function Navbar() {
     const isUserSignOut = context.signOut || parsedSignOut
 
      //Account
-     const account = localStorage.getItem('account')
-     const parsedAccount = JSON.parse(account)
+    const account = localStorage.getItem('account')
+    const parsedAccount = JSON.parse(account)
      //Has an account
-     const noAccountInLocalStorage = parsedAccount ? Object.keys(parsedAccount).length === 0 : true
-     const noAccountInLocalState = context.account ? Object.keys(context.account).length === 0 : true
-     const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
+    const noAccountInLocalStorage = parsedAccount ? Object.keys(parsedAccount).length === 0 : true
+    const noAccountInLocalState = context.account ? Object.keys(context.account).length === 0 : true
+    const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
 
     const handleSignOut = () => {
         const stringifiedSignOut = JSON.stringify(true)
@@ -30,21 +30,6 @@ function Navbar() {
     const renderView = () => {
         if(hasUserAnAccount && !isUserSignOut) {
             return (
-                <li>
-                <NavLink 
-                    to='/sign-in'
-                    className={({isActive}) =>
-                        isActive ? activeStyle : undefined
-                }                    
-                onClick={() => handleSignOut()}
-                >
-                    Sign Out
-                </NavLink>
-            </li>
-            )
-                
-            } else {
-                return (
                 <>
                     <li className='text-black/60'>
                         {parsedAccount?.email}
@@ -78,6 +63,21 @@ function Navbar() {
                         </NavLink>
                     </li>
                 </>
+            )
+                
+            } else {
+                return (
+                <li>
+                    <NavLink 
+                        to='/sign-in'
+                        className={({isActive}) =>
+                            isActive ? activeStyle : undefined
+                        }                    
+                        onClick={() => handleSignOut()}
+                    >
+                    Sign In
+                    </NavLink>
+                </li>
                 )
             }
 
@@ -89,7 +89,7 @@ function Navbar() {
                 
                 <li className='font-semibold text-lg'>
                     <NavLink 
-                        to={`${isUserSignOut ? 'sign-in' : '/'}`}
+                        to={`${isUserSignOut ? '/sign-in' : '/'}`}
                         className={({isActive}) => isActive ? activeStyle : undefined
                     
                     }>Shopi
