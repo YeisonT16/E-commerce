@@ -26,7 +26,7 @@ function Navbar() {
         localStorage.setItem('sign-out', stringifiedSignOut)
         context.setSignOut(true)
     }
-    //se cambio el orden de los elementos en la funcion renderView, revisar pullrequest platzi
+    
     const renderView = () => {
         if(hasUserAnAccount && !isUserSignOut) {
             return (

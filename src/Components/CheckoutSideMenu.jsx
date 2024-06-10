@@ -9,6 +9,12 @@ function CheckoutSideMenu(){
 
     const context = useContext(ShoppingCartContext);
     //Eliminar un producto: Devuelve una lista con todos los items en cartProducts que almacena en la variable filteredProducts a acepcion del que tenga el mismo id que el id del producto seleccionado
+
+    const handle = () => {
+        handleCheckout(context.cartProducts)
+        context.closeCheckoutSideMenu()
+
+    }
     const handleDelete = (id) => {
         const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
         context.setCartProducts(filteredProducts)
@@ -29,7 +35,7 @@ function CheckoutSideMenu(){
     return(
         <aside className={`${context.checkoutSideMenu ? 'flex' : 'hidden'} w-[290px] h-[calc(100vh-80px)] flex-col fixed top-[68px] right-0 border border-sky-300 rounded-lg bg-white`} >
             <div className="flex justify-between items-center p-6">
-                <h2 className="font-medium text-xl text-gray-500">My Order</h2>
+                <h2 className="font-bold text-xl text-gray-500">My Order</h2>
                 <div>
                     <button
                         onClick={() => context.closeCheckoutSideMenu()}
@@ -61,7 +67,7 @@ function CheckoutSideMenu(){
                     <span className="font-medium text-2xl text-red-600/80">${totalPrice(context.cartProducts)}</span>
                 </p>
                 <Link to={'/my-orders/last'}>
-                <button className="w-full h-10 bg-sky-500/90 text-white rounded-lg" onClick={() => handleCheckout(context.cartProducts)}>Checkout</button>
+                <button className="w-full h-10 bg-sky-500/90 font-medium text-white rounded-lg border hover:bg-blue-500/90 hover:border-black" onClick={() => handle()}>Checkout</button>
                 </Link>
                 
             </div>

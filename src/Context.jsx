@@ -36,7 +36,7 @@ export const ShoppingCardProvider = ({children}) => {
     //Estado abrir/cerrar el detalle de producto
     const [productDetailOpen, setProductDetailOpen] = useState(false);
     
-    //Estado derivado de productDetailState
+    //Estado derivado del estadi productDetail
     const openProductDetail = () => {
         setProductDetailOpen(true)
     }
