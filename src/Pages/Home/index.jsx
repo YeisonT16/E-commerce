@@ -3,6 +3,7 @@ import { Layout } from "../../Components/Layout";
 import { CardProductItem } from "../../Components/CardProductItem"; 
 import { ProductDetail } from "../../Components/ProductDetail";
 import { ShoppingCartContext } from "../../Context";
+import { Skeletons } from "../../Components/Skeletons";
 
 
 function Home(){
@@ -63,11 +64,9 @@ const context = useContext(ShoppingCartContext)
                         image={item.image}
                         description={item.description}
                         />)
-            ) : (
-            <p className="text-center text-2xl">
-                ...Loading
-            </p>
-        )
+            ) : (           
+                <Skeletons />            
+            )
     }
         </div>
         <ProductDetail />
