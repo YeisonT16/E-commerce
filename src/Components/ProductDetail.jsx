@@ -14,11 +14,11 @@ const context = useContext(ShoppingCartContext);
                 <h2 className="font-medium text-black text-xl">Detail</h2>
                 <div className="text-gray-600 cursor-pointer">
                     <button 
-                         onClick={() => context.closeProductDetail()}
-                         className="cursor-pointer text-black"
+                        onClick={() => context.closeProductDetail()}
+                        className="cursor-pointer text-black"
                     >
                     <CloseIcon
-                       className="size-6"
+                    className="size-6"
                     />                    
                     </button>
                 </div>

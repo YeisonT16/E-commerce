@@ -1,10 +1,11 @@
-import { CloseIcon } from "../icons/CloseIcon"
 import { ArrowRightIcon } from "../icons/ArrowRightIcon";
+import PropTypes from 'prop-types'
 
 
 function OrdersCard(props){
     const {
-        totalPrice, totalProducts
+        totalPrice, 
+        totalProducts,
     } = props
 
     const currentDate = () => {
@@ -26,6 +27,11 @@ function OrdersCard(props){
             </p>
         </div>
     )
+}
+
+OrdersCard.propTypes = {
+    totalPrice: PropTypes.number,
+    totalProducts: PropTypes.number
 }
 
 export { OrdersCard }

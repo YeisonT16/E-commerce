@@ -9,6 +9,7 @@ import { Skeletons } from "../../Components/Skeletons";
 function Home(){
 
 const context = useContext(ShoppingCartContext)
+const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
 
 //const renderView = () => {
 //   const itemsToRender = context.searchByTitle?.length > 0 ? context.filteredItems : context.items;
@@ -47,6 +48,7 @@ const context = useContext(ShoppingCartContext)
             { context.filteredItems?.length < 1 ? (
                     context.item && context.item.map((item) => 
             <CardProductItem
+                        key={item.id}
                         id={item.id}
                         name={item.title}
                         category={item.category}
@@ -57,6 +59,7 @@ const context = useContext(ShoppingCartContext)
             ) : context.filteredItems ? (
                     context.filteredItems.map((item) => 
             <CardProductItem
+                        key={item.id}
                         id={item.id}
                         name={item.title}
                         category={item.category}
@@ -64,8 +67,14 @@ const context = useContext(ShoppingCartContext)
                         image={item.image}
                         description={item.description}
                         />)
-            ) : (           
-                <Skeletons />            
+            ) : (
+        
+                imageRender.map((_, index) => 
+                <Skeletons
+                    key={index}
+                />
+            )
+            
             )
     }
         </div>

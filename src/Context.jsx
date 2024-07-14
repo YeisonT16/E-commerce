@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 const ShoppingCartContext = createContext()
 
@@ -23,7 +24,7 @@ export const initializeLocalStorage = () => {
     }
 }
 
-export const ShoppingCardProvider = ({children}) => {
+export const ShoppingCardProvider = ({ children }) => {
 
     //  My account 
     const [account, setAccount] = useState({})
@@ -36,10 +37,11 @@ export const ShoppingCardProvider = ({children}) => {
     //Estado abrir/cerrar el detalle de producto
     const [productDetailOpen, setProductDetailOpen] = useState(false);
     
-    //Estado derivado del estadi productDetail
+    //Estado derivado del estado productDetail para abrir los detalles del producto
     const openProductDetail = () => {
         setProductDetailOpen(true)
     }
+    //Estado derivado del estado productDetail para cerrar los detalles del producto
     const closeProductDetail = () => {
         setProductDetailOpen(false)
     }
@@ -143,6 +145,10 @@ export const ShoppingCardProvider = ({children}) => {
             { children }
         </ShoppingCartContext.Provider>
     )
+}
+
+ShoppingCardProvider.propTypes = {
+    children: PropTypes.node
 }
 
 

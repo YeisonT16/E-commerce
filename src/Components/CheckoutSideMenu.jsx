@@ -10,19 +10,14 @@ function CheckoutSideMenu(){
     const context = useContext(ShoppingCartContext);
     //Eliminar un producto: Devuelve una lista con todos los items en cartProducts que almacena en la variable filteredProducts a acepcion del que tenga el mismo id que el id del producto seleccionado
 
-    const handle = () => {
-        handleCheckout(context.cartProducts)
-        context.closeCheckoutSideMenu()
-
-    }
-    const handleDelete = (id) => {
-        const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
-        context.setCartProducts(filteredProducts)
-    }
+    // const handleDelete = (id) => {
+    //     const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
+    //     context.setCartProducts(filteredProducts)
+    // }
     
-    const handleCheckout = (products) => {
+    const handleCheckout = () => {
         const ordertoAdd = {
-            date: '01.04.2024',
+            date: '01.04.2024', //hacer dinameica esta fecha
             products: context.cartProducts,
             totalProducts: context.cartProducts.length,
             totalPrice: totalPrice(context.cartProducts),
@@ -30,6 +25,12 @@ function CheckoutSideMenu(){
         context.setOrder([...context.order, ordertoAdd]);
         context.setCartProducts([]);
         context.setCount(0)
+    }
+
+    const handle = () => {
+        handleCheckout(context.cartProducts)
+        context.closeCheckoutSideMenu()
+
     }
 
     return(
@@ -51,12 +52,12 @@ function CheckoutSideMenu(){
             {  
                 context.cartProducts.map((product) => (
                     <OrderCard
+                        key={product.id}
                         id={product.id}
                         name={product.name}
                         price={product.price}
                         image={product.image}
-                        handleDelete={handleDelete}
-                    />
+                        />
                 ))
             
             }

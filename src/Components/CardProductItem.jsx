@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ShoppingCartContext } from "../Context";
 import { PlusIcon } from "../icons/PlusIcon";
 import { IconCheck } from "../icons/IconCheck";
+import PropTypes from 'prop-types'
 
 function CardProductItem(props){
     const {
@@ -71,6 +72,14 @@ function CardProductItem(props){
         
         
     )
+}
+
+CardProductItem.propTypes = {
+    image: PropTypes.node,
+    id: PropTypes.node,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    category: PropTypes.string,
 }
 
 export { CardProductItem };

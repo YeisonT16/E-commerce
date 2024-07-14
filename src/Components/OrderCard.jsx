@@ -1,13 +1,22 @@
 import { CloseIcon } from "../icons/CloseIcon"
+import PropTypes from 'prop-types'
+import { useContext } from "react"
+import { ShoppingCartContext } from "../Context"
 
 function OrderCard(props){
     const {
         id,
         image,
         price,
-        name,
-        handleDelete,
+        name,        
     } = props
+
+    const context = useContext(ShoppingCartContext)
+
+    const handleDelete = (id) => {
+        const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
+        context.setCartProducts(filteredProducts)
+    }
 
     return(
         <div className="flex items-center mb-3 rounded-lg">
@@ -24,11 +33,11 @@ function OrderCard(props){
             </div>
             <div className="flex items-center gap-2">
                 <p className="text-lg font-medium text-red-500/80">${price}</p>
-                <button className="bg-blue-400/90 rounded-lg"             
+                <button className="bg-blue-400/90 rounded-lg cursor-pointer"             
                     onClick={() => handleDelete(id)}
                 >
                     <CloseIcon
-                    className="size-6 text-black cursor-pointer"
+                    className="size-6 text-black"
                     />                
                 </button>
                     
@@ -36,6 +45,13 @@ function OrderCard(props){
             </div>
         </div>
     )
+}
+
+OrderCard.propTypes = {
+    id: PropTypes.node,
+    image: PropTypes.node,
+    price: PropTypes.number,
+    name: PropTypes.string,    
 }
 
 export { OrderCard }
