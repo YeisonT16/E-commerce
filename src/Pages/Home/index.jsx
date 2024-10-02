@@ -46,7 +46,7 @@ const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
             />
         <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
             { context.filteredItems?.length < 1 ? (
-                    context.item && context.item.map((item) => 
+                    context.item && context.item.map((item) =>
             <CardProductItem
                         key={item.id}
                         id={item.id}
