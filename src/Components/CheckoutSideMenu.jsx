@@ -34,9 +34,10 @@ function CheckoutSideMenu(){
     }
 
     return(
-        <aside className={`${context.checkoutSideMenu ? 'flex' : 'hidden'} w-[290px] h-[calc(100vh-80px)] flex-col fixed top-[68px] right-0 border border-sky-300 rounded-lg bg-white`} >
-            <div className="flex justify-between items-center p-6">
+        <aside className={`${context.checkoutSideMenu ? 'flex' : 'hidden'} w-fit h-[calc(100vh-80px)] flex-col fixed top-[68px] right-0 border border-sky-300 rounded-lg bg-white`} >
+            <div className="flex justify-between w-full items-center p-6">
                 <h2 className="font-bold text-xl text-gray-500">My Order</h2>
+                
                 <div>
                     <button
                         onClick={() => context.closeCheckoutSideMenu()}
@@ -47,9 +48,9 @@ function CheckoutSideMenu(){
                     ></CloseIcon>
                     </button>
                 </div>
-            </div>
-            <div className="gap-2 px-6 overflow-y-scroll flex-1 text-sm">
-            {  
+                </div>
+                <div className="gap-2 w-full px-6 overflow-y-auto flex-1 text-sm">
+                {  
                 context.cartProducts.map((product) => (
                     <OrderCard
                         key={product.id}
@@ -60,9 +61,9 @@ function CheckoutSideMenu(){
                         />
                 ))
             
-            }
-            </div>
-            <div className="px-6 mb-6 ">
+                }
+                </div>
+                <div className="px-6 mb-6 ">
                 <p className="flex justify-between items-center mb-2">
                     <span className="font-medium text-xl text-gray-600/80">Total</span>
                     <span className="font-medium text-2xl text-red-600/80">${totalPrice(context.cartProducts)}</span>
