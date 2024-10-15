@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 
 function Layout({children}){
 
@@ -11,3 +11,7 @@ function Layout({children}){
 }
 
 export { Layout };
+
+Layout.propTypes = {
+    children: PropTypes.node
+}
