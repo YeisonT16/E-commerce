@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "../icons/ArrowRightIcon";
+import { currentDate } from "../utils";
 import PropTypes from 'prop-types'
 
 
@@ -8,10 +9,7 @@ function OrdersCard(props){
         totalProducts,
     } = props
 
-    const currentDate = () => {
-        const date = new Date().toLocaleDateString();
-        return date
-    }
+
 
     return(
         <div className="flex justify-between items-center border border-sky-500 w-80 rounded-lg p-4 mb-4">

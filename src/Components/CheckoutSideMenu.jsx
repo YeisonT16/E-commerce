@@ -4,6 +4,7 @@ import { ShoppingCartContext } from "../Context"
 import { CloseIcon } from "../icons/CloseIcon";
 import { OrderCard } from "./OrderCard";
 import { totalPrice } from "../utils";
+import { currentDate } from "../utils";
 
 function CheckoutSideMenu(){
 
@@ -17,7 +18,7 @@ function CheckoutSideMenu(){
     
     const handleCheckout = () => {
         const ordertoAdd = {
-            date: '01.04.2024', //hacer dinameica esta fecha
+            date: currentDate(),
             products: context.cartProducts,
             totalProducts: context.cartProducts.length,
             totalPrice: totalPrice(context.cartProducts),

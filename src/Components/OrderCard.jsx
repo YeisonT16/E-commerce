@@ -16,6 +16,9 @@ function OrderCard(props){
     const handleDelete = (id) => {
         const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
         context.setCartProducts(filteredProducts)
+        console.log('productos restantes',filteredProducts)
+
+        //añadir codigo para eliminar items desde el componente my Order
     }
 
     return(
@@ -35,11 +38,11 @@ function OrderCard(props){
                 <p className="text-lg font-medium text-red-500/80">${price}</p>               
             </div>
             <div className="p-1" >
-            <button className="bg-blue-400/90 rounded-lg cursor-pointer"             
+            <button className="size-fit bg-blue-400 rounded-lg cursor-pointer"             
                     onClick={() => handleDelete(id)}
                 >
                     <CloseIcon
-                    className="size-6 text-black"
+                    className="size-6 text-blue-400"
                     />                
                 </button>
             </div>

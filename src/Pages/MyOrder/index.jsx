@@ -11,7 +11,12 @@ function MyOrder(){
     let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
     if (index === 'last') index = context.order?.length - 1
 
-    
+    // const handleDelete = (id) => {
+    //     const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
+    //     context.setCartProducts(filteredProducts)
+    //     console.log('productos restantes',filteredProducts)
+    // }
+
     return (
         <Layout>
         <div className="flex items-center justify-center w-80 relative mb-6">
@@ -32,6 +37,7 @@ function MyOrder(){
                         name={product.name}
                         price={product.price}
                         image={product.image}
+                        // deleteFunc={() => handleDelete(product.id)}
                     />
                 ))
             

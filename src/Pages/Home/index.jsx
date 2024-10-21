@@ -48,7 +48,7 @@ const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
             { context.filteredItems?.length < 1 ? (
                     context.item && context.item.map((item) =>
             <CardProductItem
-                        key={item.id}
+                        key={item.title}
                         id={item.id}
                         name={item.title}
                         category={item.category}

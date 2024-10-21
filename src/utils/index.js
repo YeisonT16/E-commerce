@@ -7,3 +7,8 @@
 export const totalPrice = (products) => {
     return products.reduce((sum, product) => sum + product.price, 0).toFixed(2)
 }
+
+export const currentDate = () => {
+    const date = new Date().toLocaleDateString();
+    return date
+}
