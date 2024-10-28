@@ -19,16 +19,16 @@ function MyOrder(){
 
     return (
         <Layout>
-        <div className="flex items-center justify-center w-80 relative mb-6">
-                <Link to="/my-orders" className="absolute left-0">
+        <div className="flex items-center justify-center w-64 relative mb-6">
+                <Link to="/my-orders" className="absolute left-0 hover:text-blue-400 hover:scale-125 transition-transform">
                     <ArrowLeftIcon 
                         classname="size-7 cursor-pointer" 
                     >                
                     </ArrowLeftIcon>
                 </Link>
-                <h1>My order</h1>
+                <h1 className="font-semibold text-2xl text-white">My order</h1>
             </div>
-        <div className="flex flex-col w-80">
+        <div className="flex flex-col size-fit">
             {  
                 context.order?.[index]?.products.map(product => (
                     <OrderCard

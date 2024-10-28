@@ -70,7 +70,7 @@ function CheckoutSideMenu(){
                     <span className="font-medium text-2xl text-red-600/80">${totalPrice(context.cartProducts)}</span>
                 </p>
                 <Link to={'/my-orders/last'}>
-                <button className="w-full h-10 bg-sky-500/90 font-medium text-white rounded-lg border hover:bg-blue-500/90 hover:border-black" onClick={() => handle()}>Checkout</button>
+                <button className="w-full h-10 bg-sky-500/90 font-medium text-white rounded-lg border hover:bg-blue-500/90 hover:border-black transition-transform hover:scale-110" onClick={() => handle()}>Checkout</button>
                 </Link>
                 
             </div>

@@ -20,7 +20,9 @@ function OrdersCard(props){
                 </p>
                 <p className="flex items-center gap-2">
                     <span className="font-medium text-2xl text-red-500/70">{totalPrice}</span>
-                    <ArrowRightIcon className="size-7 hover:bg-blue-300 hover:transition scale-100" />
+                    <button className="text-white hover:text-blue-400 transition-transform hover:scale-125">
+                        <ArrowRightIcon className="size-7" />
+                    </button>
                 </p>
             </p>
         </div>

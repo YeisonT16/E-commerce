@@ -35,18 +35,18 @@ function CardProductItem(props){
         if(isInCart){
             return (
                 <div
-                className="absolute top-0 right-0 flex justify-center items-center bg-black size-6 rounded-full m-2 p-1"                >
-                <IconCheck className="size-6"
+                className="absolute top-0 right-0 flex justify-center bg-white items-center text-black size-7 rounded-full m-2 "                >
+                <IconCheck
                 ></IconCheck>
                 </div>
             )
         } else {
             return (
                 <button 
-                className="absolute top-0 right-0 flex justify-center items-center bg-yellow-600/90 size-6 rounded-full m-2 p-1"
+                className="absolute top-0 right-0 flex justify-center items-center bg-white text-yellow-600/90 size-7 rounded-full m-2 transition-transform hover:scale-110"
                 onClick={(event) => addProductsToCart(event, props)}
                 >
-                <PlusIcon className="size-9"
+                <PlusIcon
                 ></PlusIcon>
                 </button>
 
@@ -64,9 +64,9 @@ function CardProductItem(props){
             {rederIcon(id)}
             </figure>
             <span className="px-2 h-5 block text-[11px] overflow-hidden text-gray-500/80">{name}</span>
-            <p className="flex justify-between items-center px-2">
-                <span className="text-sm  font-bold text-red-500/80">${price}</span>
-                <span className="text-sm font-semibold text-red text-blue-500/80 ">3 disponibles</span>
+            <p className="flex justify-between items-center mx-2">
+                <span className="text-sm size-fit font-bold text-red-500/80 -my-1">${price}</span>
+                <span className="text-sm  size-fit font-semibold text-red text-blue-500/80 -my-1">3 disponibles</span>
             </p>            
         </div>
         

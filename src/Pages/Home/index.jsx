@@ -41,7 +41,7 @@ const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
         <input 
             type="text"
             placeholder="Search a product" 
-            className="rounded-lg border border-sky-400/90 w-80 p-4 mb-4 focus:outline-none text-gray-600/90"
+            className="rounded-lg w-80 p-4 mb-4 outline-offset-2 text-yellow-500"
             onChange={(event) => context.setSearchedItems(event.target.value)}
             />
         <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">

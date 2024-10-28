@@ -38,11 +38,11 @@ function OrderCard(props){
                 <p className="text-lg font-medium text-red-500/80">${price}</p>               
             </div>
             <div className="p-1" >
-            <button className="size-fit bg-blue-400 rounded-lg cursor-pointer"             
+            <button className="size-fit text-blue-400 rounded-lg cursor-pointer hover:bg-red-500 hover:text-white hover:scale-110 transition-transform"             
                     onClick={() => handleDelete(id)}
                 >
                     <CloseIcon
-                    className="size-6 text-blue-400"
+                    className="size-6"
                     />                
                 </button>
             </div>
