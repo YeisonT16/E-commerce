@@ -70,6 +70,8 @@ export const ShoppingCardProvider = ({ children }) => {
     //filtered products array
     const [filteredItems, setFilteredItems] = useState(null)
 
+    const [prductsOrder, setPrductsOrder] = useState([])
+
     // Get products by title
     //const [searchByTitle, setSearhByTitle] = useState(null)
 
@@ -101,7 +103,7 @@ export const ShoppingCardProvider = ({ children }) => {
                         item.category.toLowerCase().includes(searchedItems.toLowerCase())
         )
     };
-
+    
     //filter products by name, description or category
 
 
@@ -141,6 +143,8 @@ export const ShoppingCardProvider = ({ children }) => {
             setAccount,
             signOut,
             setSignOut,
+            prductsOrder,
+            setPrductsOrder
         }}>
             { children }
         </ShoppingCartContext.Provider>

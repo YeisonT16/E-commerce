@@ -16,16 +16,17 @@ function CheckoutSideMenu(){
     //     context.setCartProducts(filteredProducts)
     // }
     
-    const handleCheckout = () => {
+    const handleCheckout = (products) => {
         const ordertoAdd = {
             date: currentDate(),
-            products: context.cartProducts,
-            totalProducts: context.cartProducts.length,
-            totalPrice: totalPrice(context.cartProducts),
+            products: products,
+            totalProducts: products.length,
+            totalPrice: totalPrice(products),
+            //TODO: agregar el estado para hacer mas dinamica la lista de items y mostrar sus cambios
         }
         context.setOrder([...context.order, ordertoAdd]);
-        context.setCartProducts([]);
-        context.setCount(0)
+        //context.setCartProducts([]);
+        //context.setCount(0)
     }
 
     const handle = () => {

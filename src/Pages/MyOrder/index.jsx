@@ -37,7 +37,6 @@ function MyOrder(){
                         name={product.name}
                         price={product.price}
                         image={product.image}
-                        // deleteFunc={() => handleDelete(product.id)}
                     />
                 ))
             

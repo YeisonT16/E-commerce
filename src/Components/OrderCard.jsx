@@ -8,7 +8,7 @@ function OrderCard(props){
         id,
         image,
         price,
-        name,        
+        name,
     } = props
 
     const context = useContext(ShoppingCartContext)
@@ -16,6 +16,7 @@ function OrderCard(props){
     const handleDelete = (id) => {
         const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
         context.setCartProducts(filteredProducts)
+        context.set
         console.log('productos restantes',filteredProducts)
 
         //añadir codigo para eliminar items desde el componente my Order
@@ -54,7 +55,7 @@ OrderCard.propTypes = {
     id: PropTypes.node,
     image: PropTypes.node,
     price: PropTypes.number,
-    name: PropTypes.string,    
+    name: PropTypes.string
 }
 
 export { OrderCard }
