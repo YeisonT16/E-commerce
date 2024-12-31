@@ -40,7 +40,7 @@ const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
         </div>
         <input 
             type="text"
-            placeholder="Search a product" 
+            placeholder="Search a product..." 
             className="rounded-lg w-80 p-4 mb-4 outline-offset-2 text-yellow-500"
             onChange={(event) => context.setSearchedItems(event.target.value)}
             />
