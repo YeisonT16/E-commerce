@@ -34,17 +34,17 @@ const imageRender = [0, 1, 2, 3, 4, 5, 6, 7]
     return (
         <Layout>
         <div className="flex items-center justify-center relative w-80 mb-4">
-            <h1 className="font-medium text-xl">
+            <h1 className="font-semibold text-4xl mb-6">
                 Exclusive Products
             </h1>
         </div>
-        <input 
+        <input
             type="text"
             placeholder="Search a product..." 
-            className="rounded-lg w-80 p-4 mb-4 outline-offset-2 text-yellow-500"
+            className="rounded-lg w-80 p-4 mb-4 outline-offset-2 text-yellow-500 font-semibold text-xl bg-gray-600"
             onChange={(event) => context.setSearchedItems(event.target.value)}
             />
-        <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+        <div className="grid gap-4 lg:grid-cols-4 lg:w-full lg:max-w-screen-lg grid-cols-2 md:grid-cols-3 size-fit max-[500px]:grid-cols-1">
             { context.filteredItems?.length < 1 ? (
                     context.item && context.item.map((item) =>
             <CardProductItem

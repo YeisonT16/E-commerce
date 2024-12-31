@@ -20,7 +20,7 @@ function MyOrder(){
     return (
         <Layout>
         <div className="flex items-center justify-center w-64 relative mb-6">
-                <Link to="/my-orders" className="flex items-center absolute left-0 size-6 hover:border-stone-900 bg-transparent hover:bg-stone-800 rounded-md hover:text-blue-400 hover:scale-125 transition-transform">
+                <Link to="/my-orders" className="flex items-center absolute left-0 size-6 hover:border-stone-900 bg-transparent hover:bg-zinc-900 rounded-md hover:text-blue-400 hover:scale-125 transition-transform">
                     <ArrowLeftIcon 
                         classname="size-7 cursor-pointer" 
                     >                
