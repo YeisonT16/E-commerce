@@ -11,10 +11,10 @@ function MyOrder(){
     let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
     if (index === 'last') index = context.order?.length - 1
 
-    // const handleDelete = (id) => {
-    //     const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
-    //     context.setCartProducts(filteredProducts)
+    // const handleDelete = (id, index) => {
+    //     const filteredProducts = context.order[index].filter(product => product.id !== id) 
     //     console.log('productos restantes',filteredProducts)
+    //     return filteredProducts
     // }
 
     return (

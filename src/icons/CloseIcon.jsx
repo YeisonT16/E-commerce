@@ -1,9 +1,13 @@
-function CloseIcon(){
+import PropTypes from "prop-types";
+
+function CloseIcon(props){
+
+    const {width, height} = props
     return(
         <svg  
         xmlns="http://www.w3.org/2000/svg"  
-        width="24"  
-        height="24"  
+        width={width}  
+        height={height}  
         viewBox="0 0 24 24"  
         fill="none"  
         stroke="currentColor"  
@@ -15,6 +19,11 @@ function CloseIcon(){
             <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
         </svg>
     )
+}
+
+CloseIcon.propTypes = {
+    width: PropTypes.number,
+    height: PropTypes.number
 }
 
 export { CloseIcon };

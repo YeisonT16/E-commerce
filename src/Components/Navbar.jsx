@@ -31,7 +31,7 @@ function Navbar() {
         if(hasUserAnAccount && !isUserSignOut) {
             return (
                 <>
-                    <li className='text-black/60'>
+                    <li className='text-yellow-600/90'>
                         {parsedAccount?.email}
                     </li>
                     <li>

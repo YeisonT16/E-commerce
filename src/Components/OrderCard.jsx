@@ -16,14 +16,23 @@ function OrderCard(props){
     const handleDelete = (id) => {
         const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
         context.setCartProducts(filteredProducts)
-        context.set
-        console.log('productos restantes',filteredProducts)
+        //context.setOrder(filteredProducts)
+        console.log('productos restantes',context.order)
 
         //añadir codigo para eliminar items desde el componente my Order
     }
 
+    const handleDeleteForId = (id) => {
+        if(context.order.id === id){
+            const filteredProducts = context.order.
+            console.log('productos restantes en myOrder',filteredProducts);
+            //context.order.products = filteredProducts
+            
+        }
+    }
+
     return(
-        <div className="flex items-center w-mb-3 content-between rounded-lg mb-2 max-w-[240px] min-w-[240px] overflow-hidden">
+        <div className="flex items-center content-between rounded-lg mb-2 max-w-[240px] min-w-[240px] overflow-hidden shadow-lg transition-transform hover:scale-105 hover:brightness-105">
             <div className="flex items-center gap-2">
                 <figure className="size-14 p-1">
                     <img className="size-full rounded-lg object-cover"
@@ -38,12 +47,14 @@ function OrderCard(props){
             <div className="flex items-center gap-2 p-1">
                 <p className="text-lg font-medium text-red-500/80">${price}</p>               
             </div>
-            <div className="p-1" >
+            <div className="p-1 flex" >
             <button className="size-fit text-blue-400 rounded-lg cursor-pointer hover:bg-red-500 hover:text-white hover:scale-110 transition-transform"             
-                    onClick={() => handleDelete(id)}
+                    onClick={() => {handleDelete(id); handleDeleteForId(context.order.id)}}
                 >
                     <CloseIcon
                     className="size-6"
+                    width={24}
+                    height={24}
                     />                
                 </button>
             </div>

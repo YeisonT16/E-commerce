@@ -70,7 +70,7 @@ export const ShoppingCardProvider = ({ children }) => {
     //filtered products array
     const [filteredItems, setFilteredItems] = useState(null)
 
-    const [prductsOrder, setPrductsOrder] = useState([])
+    // const [productsOrder, setPrductsOrder] = useState([])
 
     // Get products by title
     //const [searchByTitle, setSearhByTitle] = useState(null)
@@ -142,9 +142,7 @@ export const ShoppingCardProvider = ({ children }) => {
             account,
             setAccount,
             signOut,
-            setSignOut,
-            prductsOrder,
-            setPrductsOrder
+            setSignOut
         }}>
             { children }
         </ShoppingCartContext.Provider>

@@ -15,9 +15,15 @@ function CheckoutSideMenu(){
     //     const filteredProducts = context.cartProducts.filter(product => product.id !== id) 
     //     context.setCartProducts(filteredProducts)
     // }
+    const generateRandomId = () => {
+        const randomPart = Math.random().toString(36).substring(2, 9); // Genera una parte aleatoria
+        const timePart = Date.now().toString(36); // Convierte la marca de tiempo actual a base 36
+        return `${randomPart}-${timePart}`; // Combina ambas partes
+    }
     
     const handleCheckout = (products) => {
         const ordertoAdd = {
+            id: generateRandomId(),
             date: currentDate(),
             products: products,
             totalProducts: products.length,
@@ -40,17 +46,18 @@ function CheckoutSideMenu(){
             <div className="flex justify-between w-full items-center p-6">
                 <h2 className="font-bold text-xl text-gray-500">My Order</h2>
                 
-                <div>
+                
                     <button
                         onClick={() => context.closeCheckoutSideMenu()}
-                        className="cursor-pointer bg-gray-600/80 rounded-lg"                    
+                        className="size-fit cursor-pointer bg-white rounded-lg text-blue-400 hover:bg-red-500 hover:text-white hover:scale-110 transition-transform"                    
                     >
                     <CloseIcon
-                        className="size-6"
-                    ></CloseIcon>
+                        width={30}
+                        height={30}
+                    />
                     </button>
-                </div>
-                </div>
+                
+            </div>
                 <div className="gap-2 w-full px-6 overflow-y-auto flex-1 text-sm">
                 {  
                 context.cartProducts.map((product) => (
